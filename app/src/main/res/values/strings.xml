@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Flags List</string>
+    <string name="countryTitle">Country</string>
+    <string name="capitalTitle">Capital:</string>
+    <string name="populationTitle">Population:</string>
+</resources>
