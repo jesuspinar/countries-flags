@@ -24,9 +24,11 @@ public class CountryAdapter extends ArrayAdapter<Country> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        View item = inflater.inflate(R.layout.listitem_country, null);
+        View item = convertView;
+        if (convertView == null){
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            item = inflater.inflate(R.layout.listitem_country, null);
+        }
         ImageView ivFlag = item.findViewById(R.id.ivFlag);
 
         try {
@@ -36,8 +38,8 @@ public class CountryAdapter extends ArrayAdapter<Country> {
             if(resID != 0) {
                 ivFlag.setImageResource(resID);
             } else {
-                flagName = "_onu";
-                resID = getContext().getResources().getIdentifier(flagName, "drawable", getContext().getPackageName());
+                resID = getContext().getResources().getIdentifier(
+                        "_onu", "drawable", getContext().getPackageName());
                 ivFlag.setImageResource(resID);
             }
         } catch (Exception e) {

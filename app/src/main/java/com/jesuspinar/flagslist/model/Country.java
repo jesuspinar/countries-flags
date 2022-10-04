@@ -1,10 +1,10 @@
 package com.jesuspinar.flagslist.model;
 
 public class Country {
-    private String code;
-    private String country;
-    private String capital;
-    private String population;
+    private final String code;
+    private final String country;
+    private final String capital;
+    private final String population;
 
     public Country(String code, String country, String capital, String population) {
         this.code = code;

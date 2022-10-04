@@ -32,15 +32,12 @@ public class CountryParser {
         countries = null;
 
         try {
-
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-
             DocumentBuilder builder = factory.newDocumentBuilder();
-
+            //Checks if the XML is valid
             Document dom = builder.parse(countriesFile);
-
+            //Increases cpu usage
             Element root = dom.getDocumentElement();
-
             NodeList items = root.getElementsByTagName("country");
 
             countries = new Country[items.getLength()];
