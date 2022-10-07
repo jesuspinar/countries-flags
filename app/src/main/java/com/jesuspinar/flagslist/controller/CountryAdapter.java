@@ -14,6 +14,12 @@ import com.jesuspinar.flagslist.model.Country;
 import java.util.List;
 
 public class CountryAdapter extends ArrayAdapter<Country> {
+    static class ViewHolder {
+        ImageView ivFlag ;
+        TextView tvCountryName;
+        TextView tvCountryCapital;
+        TextView tvCountryPopulation;
+    }
 
     private final Country[] countries;
 
@@ -25,35 +31,41 @@ public class CountryAdapter extends ArrayAdapter<Country> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View item = convertView;
+        ViewHolder holder;
+
         if (convertView == null){
+            holder = new ViewHolder();
+
             LayoutInflater inflater = LayoutInflater.from(getContext());
             item = inflater.inflate(R.layout.listitem_country, null);
+            holder.tvCountryName = item.findViewById(R.id.tvCountryName);
+            holder.tvCountryCapital = item.findViewById(R.id.tvCaptialName);
+            holder.tvCountryPopulation = item.findViewById(R.id.tvPoblationNumb);
+            holder.ivFlag = item.findViewById(R.id.ivFlag);
+
+            item.setTag(holder);
+        }else{
+            holder = (ViewHolder) item.getTag();
         }
-        ImageView ivFlag = item.findViewById(R.id.ivFlag);
 
         try {
             String flagName = "_"+countries[position].getCode().toLowerCase();
             int resID = getContext().getResources().getIdentifier(flagName, "drawable", getContext().getPackageName());
 
             if(resID != 0) {
-                ivFlag.setImageResource(resID);
+                holder.ivFlag.setImageResource(resID);
             } else {
                 resID = getContext().getResources().getIdentifier(
                         "_onu", "drawable", getContext().getPackageName());
-                ivFlag.setImageResource(resID);
+                holder.ivFlag.setImageResource(resID);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        TextView tvCountryName = item.findViewById(R.id.tvCountryName);
-        tvCountryName.setText(countries[position].getCountry());
-
-        TextView tvCountryCapital = item.findViewById(R.id.tvCaptialName);
-        tvCountryCapital.setText(countries[position].getCapital());
-
-        TextView tvCountryPopulation = item.findViewById(R.id.tvPoblationNumb);
-        tvCountryPopulation.setText(String.valueOf(countries[position].getPopulation()));
+        holder.tvCountryName.setText(countries[position].getCountry());
+        holder.tvCountryCapital.setText(countries[position].getCapital());
+        holder.tvCountryPopulation.setText(String.valueOf(countries[position].getPopulation()));
 
         return item;
     }

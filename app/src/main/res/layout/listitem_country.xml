@@ -8,20 +8,19 @@
 
     <ImageView
         android:id="@+id/ivFlag"
-        android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
         app:srcCompat="@drawable/_ad" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/cl_dataFlag"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="50dp">
 
         <TextView
             android:id="@+id/tvCountryName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:text="@string/countryTitle"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/tvCapitalTitle"
@@ -33,7 +32,6 @@
             android:id="@+id/tvCapitalTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:text="@string/capitalTitle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,17 +42,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
-            android:layout_marginBottom="4dp"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvCapitalTitle"
-            app:layout_constraintTop_toTopOf="@+id/tvCapitalTitle" />
+            app:layout_constraintStart_toEndOf="@+id/tvCapitalTitle" />
 
         <TextView
             android:id="@+id/tvPoblationTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="52dp"
+            android:layout_marginStart="12dp"
             android:layout_marginBottom="7dp"
             android:text="@string/populationTitle"
             app:layout_constraintBottom_toBottomOf="parent"

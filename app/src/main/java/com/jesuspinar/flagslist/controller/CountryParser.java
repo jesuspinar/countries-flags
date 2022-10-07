@@ -50,7 +50,7 @@ public class CountryParser {
                 String countryCapital = item.getAttributes().getNamedItem("capital").getNodeValue();
                 String countryPopulation = String.valueOf(Long.parseLong(item.getAttributes().getNamedItem("population").getNodeValue()));
 
-                countries[i] = new Country(countryCode, countryName, countryPopulation, countryCapital);
+                countries[i] = new Country(countryCode, countryName,countryCapital,countryPopulation);
             }
             parsed = true;
 
